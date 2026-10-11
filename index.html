@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Set Go — Web3 &amp; Blockchain Internship Week 1 Hub</title>
+  <meta name="description" content="Week 1 Portfolio & Interactive Lab for Blockchain Architecture, Ethereum EVM, Wallets, Transactions, and Solidity Smart Contracts." />
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-brands fa-ethereum"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Skill Set Go <span>Web3 Week 1</span></h1>
+          <span class="badge">Blockchain Internship</span>
+        </div>
+      </div>
+
+      <div class="nav-stats">
+        <div class="network-badge" id="network-pill">
+          <span class="pulse-dot"></span> Sepolia Testnet
+        </div>
+        <a href="#smart-contract-section" class="btn btn-secondary">
+          <i class="fa-solid fa-code"></i> Smart Contract
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <i class="fa-solid fa-shield-halved"></i> Week 1 Scope: Architecture • Wallets • EVM • Solidity
+      </div>
+      <h2>Ethereum Architecture &amp; <span class="highlight-text">Smart Contract Lab</span></h2>
+      <p class="hero-desc">
+        Comprehensive submission showcase for Week 1 of the Skill Set Go Web3 Internship. Explore interactive transaction workflows, consensus &amp; execution layer architecture, wallet lifecycle, and a live simulated Solidity smart contract sandbox.
+      </p>
+
+      <div class="hero-pills">
+        <div class="pill-card">
+          <i class="fa-solid fa-cubes"></i>
+          <div>
+            <strong>Consensus &amp; Execution</strong>
+            <span>PoS Validators &amp; EVM State Machine</span>
+          </div>
+        </div>
+        <div class="pill-card">
+          <i class="fa-solid fa-wallet"></i>
+          <div>
+            <strong>EOA &amp; Contract Accounts</strong>
+            <span>ECDSA Keys &amp; Sepolia Gas</span>
+          </div>
+        </div>
+        <div class="pill-card">
+          <i class="fa-solid fa-file-contract"></i>
+          <div>
+            <strong>BasicStorage.sol</strong>
+            <span>Solidity 0.8.24 + Events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Multi-Tab Navigation -->
+  <main class="container">
+    <!-- Architecture Visual Topology -->
+    <section class="card arch-card">
+      <div class="card-header">
+        <div class="card-title">
+          <i class="fa-solid fa-network-wired"></i>
+          <h3>Ethereum High-Level Architecture Topology</h3>
+        </div>
+        <span class="sub-badge">EVM Execution Flow</span>
+      </div>
+
+      <div class="topology-grid">
+        <div class="topo-step">
+          <div class="step-num">1</div>
+          <div class="step-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+          <h4>EOA / User Action</h4>
+          <p>User generates transaction and signs using secp256k1 private key via MetaMask.</p>
+        </div>
+        <div class="topo-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="topo-step">
+          <div class="step-num">2</div>
+          <div class="step-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+          <h4>JSON-RPC Node</h4>
+          <p>Transaction relayed to Infura/Alchemy node via <code>eth_sendRawTransaction</code>.</p>
+        </div>
+        <div class="topo-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="topo-step">
+          <div class="step-num">3</div>
+          <div class="step-icon"><i class="fa-solid fa-server"></i></div>
+          <h4>Mempool &amp; Validator</h4>
+          <p>Validators bundle transactions into a block via Proof of Stake consensus (Beacon Chain).</p>
+        </div>
+        <div class="topo-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <div class="topo-step">
+          <div class="step-num">4</div>
+          <div class="step-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h4>EVM Execution</h4>
+          <p>Opcode bytecode executed, Gas consumed, state updated, and events emitted to receipt logs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Split Screen: Smart Contract Sandbox & Interactive Web3 Lab -->
+    <div class="grid-2col" id="smart-contract-section">
+      <!-- Left: Interactive Solidity Contract Simulator -->
+      <div class="card contract-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-terminal"></i>
+            <h3>BasicStorage.sol Live Sandbox</h3>
+          </div>
+          <span class="badge-sol">Solidity ^0.8.24</span>
+        </div>
+
+        <div class="contract-info-banner">
+          <div class="info-row">
+            <span>Contract Address:</span>
+            <code class="code-pill" id="contract-addr">0x742d35Cc6634C0532925a3b844Bc454e4438f44e</code>
+          </div>
+          <div class="info-row">
+            <span>Current State (<code>storedValue</code>):</span>
+            <strong class="state-val" id="current-state-val">42</strong>
+          </div>
+        </div>
+
+        <!-- Contract Methods Form -->
+        <div class="contract-methods">
+          <div class="method-box read-box">
+            <div class="method-header">
+              <span class="method-tag view">view</span>
+              <h4>getValue()</h4>
+            </div>
+            <p>Reads current <code>storedValue</code> from contract storage without paying gas.</p>
+            <button class="btn btn-sm btn-secondary" id="btn-call-getvalue">
+              <i class="fa-solid fa-eye"></i> Call getValue()
+            </button>
+            <div class="call-result hidden" id="read-result">
+              Response: <strong>uint256: <span id="read-val-display">42</span></strong>
+            </div>
+          </div>
+
+          <div class="method-box write-box">
+            <div class="method-header">
+              <span class="method-tag state">transact</span>
+              <h4>setValue(uint256 newValue)</h4>
+            </div>
+            <p>Updates stored variable and emits <code>ValueChanged(address, uint256)</code> event.</p>
+            <div class="input-action-row">
+              <input type="number" id="input-new-val" placeholder="Enter integer (e.g. 100)" min="0" value="100">
+              <button class="btn btn-sm btn-primary" id="btn-call-setvalue">
+                <i class="fa-solid fa-bolt"></i> Send Transaction
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Transaction Receipt Log -->
+        <div class="tx-receipt-panel">
+          <div class="receipt-header">
+            <span><i class="fa-solid fa-receipt"></i> EVM Transaction Receipt</span>
+            <span class="receipt-status success" id="tx-status"><i class="fa-solid fa-check"></i> Confirmed</span>
+          </div>
+          <div class="receipt-body" id="receipt-body">
+            <div class="receipt-line"><span>Tx Hash:</span> <code id="rx-hash">0x8a92f0...3c71</code></div>
+            <div class="receipt-line"><span>Block Number:</span> <code id="rx-block">#5820491</code></div>
+            <div class="receipt-line"><span>Gas Used:</span> <code id="rx-gas">28,452 gas</code></div>
+            <div class="receipt-line"><span>Emitted Event:</span> <code id="rx-event">ValueChanged(caller, 42)</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Solidity Source Viewer -->
+      <div class="card source-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-file-code"></i>
+            <h3>BasicStorage.sol Source</h3>
+          </div>
+          <button class="btn btn-sm btn-secondary" id="btn-copy-sol">
+            <i class="fa-regular fa-copy"></i> Copy Code
+          </button>
+        </div>
+
+        <pre class="code-box"><code id="sol-code">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+/// @title BasicStorage
+/// @notice Minimal Week 1 contract for learning deployment and state changes.
+contract BasicStorage {
+    uint256 private storedValue;
+
+    event ValueChanged(address indexed caller, uint256 newValue);
+
+    function setValue(uint256 newValue) external {
+        storedValue = newValue;
+        emit ValueChanged(msg.sender, newValue);
+    }
+
+    function getValue() external view returns (uint256) {
+        return storedValue;
+    }
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Study Guide & Curriculum Modules -->
+    <section class="card modules-card">
+      <div class="card-header">
+        <div class="card-title">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>Week 1 Curriculum Breakdown</h3>
+        </div>
+        <span class="badge">4 Core Pillars</span>
+      </div>
+
+      <div class="modules-grid">
+        <div class="mod-item">
+          <div class="mod-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+          <h4>1. Blockchain Architecture</h4>
+          <p>Distributed ledgers, P2P networking, cryptographic hashing (Keccak-256), Proof of Stake consensus, and state trees.</p>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><i class="fa-solid fa-key"></i></div>
+          <h4>2. Wallets &amp; Transactions</h4>
+          <p>Hierarchical deterministic wallets (BIP-39/44), asymmetric key generation, EIP-1559 gas mechanics (base fee + priority tip).</p>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h4>3. Development Tooling</h4>
+          <p>Remix IDE, Hardhat / Foundry workflows, local Anvil networks, and Sepolia testnet faucets.</p>
+        </div>
+
+        <div class="mod-item">
+          <div class="mod-icon"><i class="fa-solid fa-scroll"></i></div>
+          <h4>4. Smart Contracts</h4>
+          <p>Solidity syntax, storage vs memory data locations, visibility modifiers, error handling, events, and ABI interfaces.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <p>Skill Set Go — Blockchain &amp; Web3 Internship — Week 1 Portfolio &amp; Sandbox</p>
+      <p class="author">Curated by <a href="https://github.com/MrHarshalBane" target="_blank">Harshal Bane</a></p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-text">Copied to clipboard!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
